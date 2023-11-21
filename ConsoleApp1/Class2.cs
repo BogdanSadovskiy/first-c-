@@ -4,15 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace Myspace
 {
     internal class ReversNumber
     {
-        private struct sturcture{
-                 int number;
-                 int n;
-        }
-        private List<sturcture> list = new List<sturcture>();
         private int SizeOFNumber(int number)
         {
             int n = 1;
@@ -22,11 +17,25 @@ namespace ConsoleApp1
                 tmp /= 10;
                 n++;
             }
-            return 1;
+            return n;
         }
-        public addNumber(int number)
+        public int reversNumber(int number)
         {
-            
+            int size = SizeOFNumber(number);
+            int tmp = number;
+            int reversNumberTmp = 0;
+
+            for(int i = 0; i < size;i++)
+            {
+                int t = tmp % 10;
+                for(int ii = size - i-1; ii>1;ii--)
+                {
+                    t *= 10;
+                }
+                reversNumberTmp += t;
+                tmp /= 10;
+            }
+            return reversNumberTmp;
         }
 
     }
